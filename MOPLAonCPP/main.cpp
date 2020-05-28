@@ -68,14 +68,9 @@ const double PI = 2*acos(0.0);
 
 inline Tensor<double,2> transp(Tensor<double,2> a)
 {
-    Tensor<double,2> b(3,3);
-    b.setZero();
-    for(int i=2;i>=0;i--)
-        for(int j=2;j>=0;j--)
-    {
-        b(i,j)=a(j,i);
-    }
-
+    Tensor<double,2> b(3,3); b.setZero();
+    b(0,0)=a(0,0); b(1,0)=a(0,1); b(2,0)=a(0,2);
+    b(1,2)=a(2,1); b(1,1)=a(1,1); b(2,2)=a(2,2);
     return b;
 }
 
